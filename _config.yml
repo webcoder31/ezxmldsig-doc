@@ -1,0 +1,22 @@
+title: ezxmldsig documentation
+description: >-
+  Signed and encrypted XML tokens whose origin can be proven, in PHP and
+  Node.js: why, how they work, and how to use them safely.
+repository: https://github.com/webcoder31/ezxmldsig-doc
+baseurl: /ezxmldsig-doc
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    disable: true
+
+permalink: pretty
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - bin/

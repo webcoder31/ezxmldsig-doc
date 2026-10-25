@@ -1,0 +1,545 @@
+/*
+ * Style sheet of the ezxmldsig documentation. Its colours, its top bar and
+ * the illustration of the home page are those of the demos of the library
+ * (demo/public/app.css of ezxmldsig-php): dark theme by default, light
+ * theme when the system prefers it or when chosen with the theme button
+ * (html[data-theme]). System fonts only: the pages load nothing from other
+ * servers.
+ */
+
+:root {
+  --bg: #0a0e13;
+  --bg-glow: rgba(56, 214, 196, 0.25);
+  --surface: #10151c;
+  --surface-2: #151b24;
+  --surface-3: #1b2330;
+  --border: #222b37;
+  --border-strong: #2f3a49;
+  --text: #dbe3ec;
+  --text-strong: #f3f7fb;
+  --muted: #8794a6;
+  --faint: #5d6a7c;
+  --accent: #38d6c4;
+  --accent-strong: #5ff0de;
+  --accent-hover: #a6faf0;
+  --accent-ink: #04211e;
+  --accent-soft: rgba(56, 214, 196, 0.12);
+  --ok: #3fd98b;
+  --ok-soft: rgba(63, 217, 139, 0.12);
+  --bad: #ff5f7a;
+  --bad-soft: rgba(255, 95, 122, 0.12);
+  --warn: #f5b84d;
+  --warn-soft: rgba(245, 184, 77, 0.12);
+  --info: #7aa7ff;
+  --info-soft: rgba(122, 167, 255, 0.12);
+  --x-punct: #66748a;
+  --x-tag: #7aa7ff;
+  --x-prefix: #5d7bb5;
+  --x-attr: #c49bff;
+  --x-value: #8ee08a;
+  --x-text: #f5c26b;
+  --x-decl: #6f7d92;
+  --x-doctype: #ff8a65;
+  --hl: rgba(56, 214, 196, 0.08);
+  --hl-edge: #38d6c4;
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 32px -18px rgba(0, 0, 0, 0.8);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f4f6f9;
+    --bg-glow: rgba(13, 148, 136, 0.25);
+    --surface: #ffffff;
+    --surface-2: #f6f8fb;
+    --surface-3: #edf1f6;
+    --border: #dde3ea;
+    --border-strong: #c8d1dc;
+    --text: #1d2633;
+    --text-strong: #0b1220;
+    --muted: #5b6878;
+    --faint: #8a96a6;
+    --accent: #0d9488;
+    --accent-strong: #0f766e;
+    --accent-hover: #0a524c;
+    --accent-ink: #ffffff;
+    --accent-soft: rgba(13, 148, 136, 0.1);
+    --ok: #15803d;
+    --ok-soft: rgba(21, 128, 61, 0.1);
+    --bad: #d22c4b;
+    --bad-soft: rgba(210, 44, 75, 0.09);
+    --warn: #a86400;
+    --warn-soft: rgba(196, 122, 0, 0.12);
+    --info: #2f5fd0;
+    --info-soft: rgba(47, 95, 208, 0.1);
+    --x-punct: #8592a3;
+    --x-tag: #2f5fd0;
+    --x-prefix: #7088c0;
+    --x-attr: #8a3ffc;
+    --x-value: #23863a;
+    --x-text: #a35200;
+    --x-decl: #8592a3;
+    --x-doctype: #c2410c;
+    --hl: rgba(13, 148, 136, 0.08);
+    --hl-edge: #0d9488;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 8px 24px -16px rgba(16, 24, 40, 0.25);
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f6f9;
+  --bg-glow: rgba(13, 148, 136, 0.25);
+  --surface: #ffffff;
+  --surface-2: #f6f8fb;
+  --surface-3: #edf1f6;
+  --border: #dde3ea;
+  --border-strong: #c8d1dc;
+  --text: #1d2633;
+  --text-strong: #0b1220;
+  --muted: #5b6878;
+  --faint: #8a96a6;
+  --accent: #0d9488;
+  --accent-strong: #0f766e;
+  --accent-hover: #0a524c;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(13, 148, 136, 0.1);
+  --ok: #15803d;
+  --ok-soft: rgba(21, 128, 61, 0.1);
+  --bad: #d22c4b;
+  --bad-soft: rgba(210, 44, 75, 0.09);
+  --warn: #a86400;
+  --warn-soft: rgba(196, 122, 0, 0.12);
+  --info: #2f5fd0;
+  --info-soft: rgba(47, 95, 208, 0.1);
+  --x-punct: #8592a3;
+  --x-tag: #2f5fd0;
+  --x-prefix: #7088c0;
+  --x-attr: #8a3ffc;
+  --x-value: #23863a;
+  --x-text: #a35200;
+  --x-decl: #8592a3;
+  --x-doctype: #c2410c;
+  --hl: rgba(13, 148, 136, 0.08);
+  --hl-edge: #0d9488;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 8px 24px -16px rgba(16, 24, 40, 0.25);
+  color-scheme: light;
+}
+
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 420px at 12% -8%, var(--bg-glow), transparent 70%),
+    radial-gradient(700px 380px at 100% 0%, var(--bg-glow), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font: 16px/1.65 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent; border-radius: 999px;
+  background: var(--border-strong) padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background-color: var(--muted); }
+@supports (-moz-appearance: none) {
+  * { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+}
+
+code, pre, kbd, samp { font-family: var(--mono); font-size: 0.92em; }
+
+:not(pre) > code {
+  padding: 0.08em 0.38em;
+  border-radius: 5px;
+  background: var(--surface-3);
+  color: var(--text-strong);
+  font-size: 0.86em;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent-strong); }
+
+:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 6px; }
+
+svg { width: 16px; height: 16px; flex: none; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -48px; z-index: 50;
+  padding: 8px 14px; border-radius: var(--radius-sm);
+  background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  backdrop-filter: saturate(140%) blur(12px);
+}
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .topbar { background: var(--bg); border-bottom: 1px solid var(--border); }
+}
+
+.topbar-inner {
+  display: flex; align-items: center; gap: 24px;
+  max-width: 1280px; margin: 0 auto; padding: 10px 24px; min-height: 56px;
+}
+
+.brand {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--text-strong); text-decoration: none; font-weight: 650; letter-spacing: -0.01em;
+}
+.brand:hover { color: var(--text-strong); }
+.brand-mark { width: 24px; height: 24px; color: var(--accent); }
+.brand-name { font-family: var(--mono); font-size: 15px; }
+.brand-sep { color: var(--faint); }
+.brand-tag { color: var(--muted); font-weight: 500; font-size: 14px; }
+
+.topbar-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+.icon-btn {
+  display: inline-grid; place-items: center;
+  width: 34px; height: 34px; padding: 0;
+  border: 1px solid var(--border); border-radius: 9px;
+  background: var(--surface); color: var(--muted); cursor: pointer;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+.icon-btn:hover { color: var(--text-strong); border-color: var(--border-strong); background: var(--surface-2); }
+
+.text-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px;
+  border: 1px solid var(--border); border-radius: 9px;
+  background: var(--surface); color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+.text-btn:hover { color: var(--text-strong); border-color: var(--border-strong); background: var(--surface-2); }
+
+/* The theme button shows the icon of the theme in use: data-choice is set
+   by site.js, and by the script of the head before the first paint. */
+.theme-icon { display: none; }
+.theme-toggle:not([data-choice]) .theme-icon-auto,
+.theme-toggle[data-choice="auto"] .theme-icon-auto,
+.theme-toggle[data-choice="dark"] .theme-icon-dark,
+.theme-toggle[data-choice="light"] .theme-icon-light { display: block; }
+
+/* ---------- Layout ---------- */
+
+.layout {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px;
+  max-width: 1280px; margin: 0 auto; padding: 0 24px 64px;
+}
+
+.sidenav { position: sticky; top: 76px; align-self: start; padding: 36px 0 0; }
+.sidenav ol { margin: 0; padding: 0; list-style: none; counter-reset: page; }
+.sidenav li { counter-increment: page; }
+.sidenav a {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 6px 10px; border-radius: 8px;
+  color: var(--muted); text-decoration: none; font-size: 14.5px; font-weight: 500;
+  transition: color 0.15s, background-color 0.15s;
+}
+.sidenav a::before { content: counter(page, decimal-leading-zero); font: 11px var(--mono); color: var(--faint); }
+.sidenav a:hover { color: var(--text-strong); background: var(--surface-2); }
+.sidenav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+.sidenav a[aria-current="page"]::before { color: var(--accent); }
+.sidenav-title {
+  margin: 0 0 8px 10px; color: var(--faint);
+  font: 600 11.5px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+main { min-width: 0; outline: none; }
+
+/* ---------- Pages ---------- */
+
+.prose { max-width: 780px; padding: 36px 0 0; }
+.prose h1 {
+  margin: 0 0 20px; color: var(--text-strong);
+  font-size: clamp(30px, 4vw, 40px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 750;
+}
+.prose h2 {
+  margin: 44px 0 12px; color: var(--text-strong);
+  font-size: 22px; line-height: 1.25; letter-spacing: -0.015em;
+}
+.prose h3 { margin: 28px 0 8px; color: var(--text-strong); font-size: 17px; }
+.prose p, .prose ul, .prose ol { margin: 0 0 16px; }
+.prose li { margin: 0 0 6px; }
+.prose strong { color: var(--text-strong); }
+.prose .lead { color: var(--muted); font-size: 18px; }
+.prose pre {
+  margin: 0 0 20px; padding: 14px 16px; overflow-x: auto;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface); color: var(--text-strong); line-height: 1.5;
+}
+
+/* A note that sends the reader to the README of each library. */
+.see-also {
+  margin: 24px 0; padding: 12px 16px;
+  border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--accent-soft); font-size: 15px;
+}
+.see-also p { margin: 0; }
+
+.callout {
+  margin: 24px 0; padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--warn) 35%, var(--border)); border-radius: var(--radius-sm);
+  background: var(--warn-soft); font-size: 15px;
+}
+.callout p { margin: 0; }
+.callout p + p { margin-top: 8px; }
+
+/* ---------- Home ---------- */
+
+.hero { padding: 48px 0 12px; }
+.hero-text { min-width: 0; }
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent); font: 600 12px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.hero h1 {
+  margin: 0; color: var(--text-strong);
+  font-size: clamp(30px, 4.2vw, 46px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 750;
+}
+.hero-accent {
+  background: linear-gradient(90deg, var(--accent), var(--info));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-lead { margin: 16px 0 0; max-width: 680px; color: var(--muted); font-size: 17px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; height: 40px; padding: 0 18px;
+  border-radius: 10px; background: var(--accent); color: var(--accent-ink);
+  font-weight: 650; text-decoration: none;
+}
+.btn-primary:hover { background: var(--accent-strong); color: var(--accent-ink); }
+
+.hero-art { display: none; }
+@media (min-width: 1180px) {
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 380px); gap: 40px; align-items: center; }
+  .hero-art { display: block; }
+}
+.hero-art svg.tk { display: block; width: 100%; height: auto; overflow: visible; }
+
+.section-title {
+  margin: 48px 0 16px; color: var(--faint);
+  font: 600 12px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.card {
+  display: flex; flex-direction: column; min-width: 0; padding: 20px 22px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); box-shadow: var(--shadow);
+}
+.card h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; color: var(--text-strong); font-size: 18px; }
+.card p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+.card pre {
+  margin: 0 0 16px; padding: 10px 12px; overflow-x: auto;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface-2); color: var(--text-strong); font-size: 13px;
+}
+.card-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: auto 0 0; padding: 0; list-style: none; font-size: 14.5px; }
+
+.chip {
+  display: inline-flex; align-items: center;
+  padding: 2px 9px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border)); border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent);
+  font: 500 12px/1.6 var(--mono); white-space: nowrap;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin: 64px 0 0; padding: 20px 0 0;
+  border-top: 1px solid var(--border); color: var(--faint); font-size: 13.5px;
+}
+.footer p { margin: 0 0 4px; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 16px 48px; }
+  .topbar-inner { padding: 10px 16px; }
+  .sidenav { position: static; padding: 20px 0 0; }
+  .sidenav ol { display: flex; flex-wrap: wrap; gap: 4px; }
+  .sidenav-title { display: none; }
+  .prose { padding-top: 24px; }
+  .hero { padding-top: 28px; }
+}
+@media (max-width: 520px) {
+  .brand-sep, .brand-tag { display: none; }
+  .topbar-actions .text-btn svg { display: none; }
+}
+
+/* ---------- Hero illustration ----------
+   A token signed, verified and accepted; then its data altered and signed
+   again with the key and certificate of an attacker: digest and signature
+   pass, the trust in the certificate fails, and the token is refused. A loop
+   of 10 s. Every animated element states its value at
+   each step; outside the animation (reduced motion, see below), the base
+   values show the token signed and accepted. */
+
+
+
+.tk text { font: 600 12px var(--mono); fill: var(--muted); }
+.tk-card { fill: var(--surface); stroke: var(--border-strong); stroke-width: 1.5; }
+.tk .tk-root { fill: var(--x-tag); font-size: 13px; }
+.tk-block rect { fill: var(--surface-2); stroke: var(--border); }
+.tk-block text { fill: var(--text); }
+.tk .tk-line { fill: var(--x-text); opacity: 0.55; stroke: none; }
+.tk-clear rect { fill: var(--ok-soft); stroke: var(--ok); stroke-width: 1.5; }
+.tk-clear .tk-under { fill: var(--surface-2); stroke: none; }
+.tk-clear text { fill: var(--x-text); }
+.tk-clear text:first-of-type { fill: var(--ok); }
+.tk-clear .tk-key { fill: var(--muted); }
+.tk-tamper { opacity: 0; }
+.tk-tamper rect { fill: var(--bad-soft); stroke: var(--bad); stroke-width: 1.5; }
+.tk-tamper .tk-under { fill: var(--surface-2); stroke: none; }
+.tk-tamper text { fill: var(--bad); }
+.tk-tamper .tk-kept { fill: var(--x-text); }
+.tk-tamper .tk-key { fill: var(--muted); }
+.tk-scan { fill: var(--accent); opacity: 0; }
+.tk-seal circle { fill: var(--info-soft); stroke: var(--x-tag); stroke-width: 2; }
+.tk-seal path { fill: none; stroke: var(--x-tag); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tk-seal { transform-box: fill-box; transform-origin: center; }
+.tk-check circle { fill: var(--ok); stroke: none; }
+.tk-check text { fill: var(--text); }
+.tk-verdict text { font-size: 13px; text-anchor: middle; letter-spacing: 0.04em; }
+.tk-ok rect { fill: var(--ok-soft); stroke: var(--ok); }
+.tk-ok text { fill: var(--ok); }
+.tk-ko { opacity: 0; }
+.tk-ko rect { fill: var(--bad-soft); stroke: var(--bad); }
+.tk-ko text { fill: var(--bad); }
+
+.tk-seal { animation: tk-seal 10s infinite; }
+.tk-scan { animation: tk-scan 10s infinite linear; }
+.tk-c1 circle { animation: tk-c1 10s infinite; }
+.tk-c2 circle { animation: tk-c2 10s infinite; }
+.tk-c3 circle { animation: tk-c3 10s infinite; }
+.tk-c4 circle { animation: tk-c4 10s infinite; }
+.tk-ok { animation: tk-ok 10s infinite; }
+.tk-ko { animation: tk-ko 10s infinite; }
+.tk-clear { animation: tk-clear 10s infinite; }
+.tk-tamper-key { animation: tk-tamper-key 10s infinite; }
+.tk-pulse { animation: tk-pulse 10s infinite; }
+.tk-tamper-object { animation: tk-tamper-object 10s infinite; }
+
+/* Signed at 12 %; lifted when the attack begins (55 %), and signed again,
+   with the key of the attacker, at 61 %; faded out at the end of the loop. */
+@keyframes tk-seal {
+  0%, 6% { opacity: 0; transform: scale(1.7); }
+  12%, 53% { opacity: 1; transform: scale(1); }
+  55% { opacity: 0; transform: scale(1); }
+  55.5%, 57% { opacity: 0; transform: scale(1.7); }
+  61%, 92% { opacity: 1; transform: scale(1); }
+  98%, 100% { opacity: 0; transform: scale(1); }
+}
+/* Read twice: 16-36 % (accepted), 62-74 % (refused at the trust). */
+@keyframes tk-scan {
+  0%, 15% { opacity: 0; transform: translateY(0); }
+  16% { opacity: 1; transform: translateY(0); }
+  36% { opacity: 1; transform: translateY(206px); }
+  37%, 61% { opacity: 0; transform: translateY(0); }
+  62% { opacity: 1; transform: translateY(0); }
+  74% { opacity: 1; transform: translateY(206px); }
+  75%, 100% { opacity: 0; transform: translateY(0); }
+}
+/* Second reading: the scan line crosses SignedInfo and SignatureValue
+   (digest, signature) at 63-66 %, and reaches KeyInfo, the certificate, at
+   67 % (trust). */
+@keyframes tk-c1 {
+  0%, 19% { fill: var(--border-strong); }
+  20%, 59% { fill: var(--ok); }
+  60%, 63% { fill: var(--border-strong); }
+  64%, 93% { fill: var(--ok); }
+  95%, 100% { fill: var(--border-strong); }
+}
+@keyframes tk-c2 {
+  0%, 25% { fill: var(--border-strong); }
+  26%, 59% { fill: var(--ok); }
+  60%, 65% { fill: var(--border-strong); }
+  66%, 93% { fill: var(--ok); }
+  95%, 100% { fill: var(--border-strong); }
+}
+@keyframes tk-c3 {
+  0%, 31% { fill: var(--border-strong); }
+  32%, 59% { fill: var(--ok); }
+  60%, 66% { fill: var(--border-strong); }
+  67%, 93% { fill: var(--bad); }
+  95%, 100% { fill: var(--border-strong); }
+}
+@keyframes tk-c4 {
+  0%, 37% { fill: var(--border-strong); }
+  38%, 59% { fill: var(--ok); }
+  60%, 100% { fill: var(--border-strong); }
+}
+@keyframes tk-ok {
+  0%, 39% { opacity: 0; }
+  41%, 56% { opacity: 1; }
+  58%, 100% { opacity: 0; }
+}
+/* The data verified, shown in clear in a green block once the scan line
+   reaches the object (28.5 %), until the attack begins. */
+@keyframes tk-clear {
+  0%, 28% { opacity: 0; }
+  29.5%, 55% { opacity: 1; }
+  58%, 100% { opacity: 0; }
+}
+/* The certificate replaced at 57 %, after the token was accepted; it
+   blinks from the moment the scan line reaches it (67 %) until it fades
+   out. The altered data show from then on, their altered value blinking
+   with it. */
+@keyframes tk-tamper-key {
+  0%, 55% { opacity: 0; }
+  58%, 93% { opacity: 1; }
+  97%, 100% { opacity: 0; }
+}
+@keyframes tk-pulse {
+  0%, 67% { opacity: 1; }
+  69% { opacity: 0.3; }
+  71% { opacity: 1; }
+  73% { opacity: 0.3; }
+  75% { opacity: 1; }
+  77% { opacity: 0.3; }
+  79% { opacity: 1; }
+  81% { opacity: 0.3; }
+  83% { opacity: 1; }
+  85% { opacity: 0.3; }
+  87% { opacity: 1; }
+  89% { opacity: 0.3; }
+  91% { opacity: 1; }
+  93% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+@keyframes tk-tamper-object {
+  0%, 66% { opacity: 0; }
+  68%, 93% { opacity: 1; }
+  97%, 100% { opacity: 0; }
+}
+@keyframes tk-ko {
+  0%, 73% { opacity: 0; }
+  75%, 93% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tk * { animation: none !important; }
+}

@@ -1,0 +1,25 @@
+# The two libraries the site documents. version: the earliest version the
+# pages apply to; raise it when a page describes a behaviour a later version
+# brings.
+- language: PHP
+  repository_name: ezxmldsig-php
+  repository: https://github.com/webcoder31/ezxmldsig-php
+  readme: https://github.com/webcoder31/ezxmldsig-php#readme
+  api: https://webcoder31.github.io/ezxmldsig-php/
+  package: webcoder31/ezxmldsig
+  package_url: https://packagist.org/packages/webcoder31/ezxmldsig
+  registry: Packagist
+  install: composer require webcoder31/ezxmldsig
+  requires: PHP 7.4 or later, with the OpenSSL extension
+  version: "1.2.1"
+- language: Node.js
+  repository_name: ezxmldsig-js
+  repository: https://github.com/webcoder31/ezxmldsig-js
+  readme: https://github.com/webcoder31/ezxmldsig-js#readme
+  api: https://webcoder31.github.io/ezxmldsig-js/
+  package: "@webcoder31/ezxmldsig"
+  package_url: https://www.npmjs.com/package/@webcoder31/ezxmldsig
+  registry: npm
+  install: npm install @webcoder31/ezxmldsig
+  requires: Node.js 22.12 or later
+  version: "1.0.2"

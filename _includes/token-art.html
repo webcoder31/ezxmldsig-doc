@@ -1,0 +1,40 @@
+{%- comment -%}
+A token signed, verified and accepted; then altered, signed again with the
+key and certificate of an attacker, and refused for its certificate. The
+illustration of the demo of ezxmldsig-php (demo/public/index.html), its
+animation in .tk-* of site.css.
+{%- endcomment -%}
+<svg class="tk" viewBox="0 0 420 300" focusable="false">
+  <defs>
+    <!-- The glow of the scan line: its own colour, blurred, under it. -->
+    <filter id="tk-glow" x="-15%" y="-3000%" width="130%" height="6100%">
+      <feMorphology in="SourceGraphic" operator="dilate" radius="0 0.5" result="thick"/>
+      <feGaussianBlur in="thick" stdDeviation="3" result="near"/>
+      <feGaussianBlur in="thick" stdDeviation="8" result="far"/>
+      <feMerge result="glow"><feMergeNode in="far"/><feMergeNode in="near"/></feMerge>
+      <feComponentTransfer in="glow" result="faint"><feFuncA type="linear" slope="0.5"/></feComponentTransfer>
+      <feMerge><feMergeNode in="faint"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect class="tk-card" x="14" y="14" width="250" height="272" rx="14"/>
+  <text class="tk-root" x="32" y="44">&lt;ds:Signature&gt;</text>
+  <g class="tk-block"><rect x="32" y="58" width="214" height="34" rx="7"/><text x="46" y="80">SignedInfo</text></g>
+  <g class="tk-block"><rect x="32" y="100" width="214" height="34" rx="7"/><text x="46" y="122">SignatureValue</text></g>
+  <g class="tk-block"><rect x="32" y="142" width="214" height="34" rx="7"/><text x="46" y="164">KeyInfo</text></g>
+  <g class="tk-block tk-object"><rect x="32" y="184" width="214" height="84" rx="7"/><text x="46" y="206">Object · Token</text>
+    <rect class="tk-line" x="46" y="220" width="120" height="7" rx="3.5"/><rect class="tk-line" x="46" y="236" width="150" height="7" rx="3.5"/><rect class="tk-line" x="46" y="252" width="96" height="7" rx="3.5"/></g>
+  <g class="tk-clear"><rect class="tk-under" x="32" y="184" width="214" height="84" rx="7"/><rect x="32" y="184" width="214" height="84" rx="7"/><text x="46" y="206">Object · Token</text>
+    <text x="46" y="228"><tspan class="tk-key">name:</tspan> Ragnar Lothbrok</text><text x="46" y="244"><tspan class="tk-key">role:</tspan> Jarl</text><text x="46" y="260"><tspan class="tk-key">location:</tspan> Kattegat</text></g>
+  <g class="tk-tamper tk-tamper-key"><rect class="tk-under" x="32" y="142" width="214" height="34" rx="7"/><g class="tk-pulse"><rect x="32" y="142" width="214" height="34" rx="7"/><text x="46" y="164">KeyInfo · attacker cert</text></g></g>
+  <g class="tk-tamper tk-tamper-object"><rect class="tk-under" x="32" y="184" width="214" height="84" rx="7"/><rect x="32" y="184" width="214" height="84" rx="7"/><text x="46" y="206">Object · Token</text><text class="tk-kept" x="46" y="228"><tspan class="tk-key">name:</tspan> Ragnar Lothbrok</text><text class="tk-pulse" x="46" y="244">role: Admin</text><text class="tk-kept" x="46" y="260"><tspan class="tk-key">location:</tspan> Kattegat</text></g>
+  <rect class="tk-scan" x="40" y="57" width="198" height="1" rx="0.5" filter="url(#tk-glow)"/>
+  <g class="tk-seal"><circle cx="224" cy="117" r="12"/><path d="M218.5 117l4 4 7-8"/></g>
+  <g class="tk-checks">
+    <g class="tk-check tk-c1"><circle cx="300" cy="74" r="9"/><text x="317" y="78">Digest</text></g>
+    <g class="tk-check tk-c2"><circle cx="300" cy="110" r="9"/><text x="317" y="114">Signature</text></g>
+    <g class="tk-check tk-c3"><circle cx="300" cy="146" r="9"/><text x="317" y="150">Trust</text></g>
+    <g class="tk-check tk-c4"><circle cx="300" cy="182" r="9"/><text x="317" y="186">Freshness</text></g>
+  </g>
+  <g class="tk-verdict tk-ok"><rect x="286" y="222" width="122" height="32" rx="16"/><text x="347" y="243">Accepted</text></g>
+  <g class="tk-verdict tk-ko"><rect x="286" y="222" width="122" height="32" rx="16"/><text x="347" y="243">Refused</text></g>
+</svg>

@@ -1,0 +1,15 @@
+#!/bin/sh
+# Preview the site at http://localhost:4000/ezxmldsig-doc/, rebuilt on every
+# change, with the gems of GitHub Pages (see Gemfile), in Docker: nothing to
+# install but a running Docker daemon. The gems are kept in a volume between
+# runs.
+set -e
+cd "$(dirname "$0")/.."
+# A terminal for Ctrl-C, when there is one.
+tty=; [ -t 0 ] && tty=-it
+exec docker run --rm $tty \
+  -p 127.0.0.1:4000:4000 \
+  -v "$PWD":/site -w /site \
+  -v ezxmldsig-doc-gems:/usr/local/bundle \
+  ruby:3.3 \
+  sh -c 'bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0 --force_polling'

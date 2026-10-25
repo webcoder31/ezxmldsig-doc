@@ -1,0 +1,50 @@
+---
+layout: default
+title: Home
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-text">
+    <p class="eyebrow">XML Signature · XML Encryption · PHP · Node.js</p>
+    <h1 id="hero-title">Signed tokens,<br><span class="hero-accent">and proof of who signed them.</span></h1>
+    <p class="hero-lead"><strong>ezxmldsig</strong> creates and verifies XML tokens: user data, timestamped, signed with the key of their sender and, if need be, encrypted for their receiver. A receiver accepts a token only if its certificate descends from the certification authorities it trusts. Use them for single sign-on, or to pass any data whose origin must be proven.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="{{ '/why/' | relative_url }}">Why?</a>
+      <a class="text-btn" href="https://ezxmldsig.wbcdr.dev">Try the demo</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    {% include token-art.html %}
+  </div>
+</section>
+
+<h2 class="section-title">Two libraries, the same tokens</h2>
+<div class="cards">
+  {%- for library in site.data.libraries %}
+  <article class="card">
+    <h3>{{ library.language }} <span class="chip">{{ library.package }}</span></h3>
+    <p>{{ library.requires }}.</p>
+    <pre><code>{{ library.install }}</code></pre>
+    <ul class="card-links">
+      <li><a href="{{ library.readme }}">README</a></li>
+      <li><a href="{{ library.api }}">API documentation</a></li>
+      <li><a href="{{ library.package_url }}">{{ library.registry }}</a></li>
+      <li><a href="{{ library.repository }}">Source</a></li>
+    </ul>
+  </article>
+  {%- endfor %}
+</div>
+<p class="hero-lead">Each library reads the tokens of the other, signed or encrypted, and refuses the same forged tokens with the same errors: a single sign-on can mix applications written in PHP and in Node.js. The tokens follow the W3C standards XML Signature and XML Encryption.</p>
+
+<h2 class="section-title">See them at work</h2>
+<div class="cards">
+  <article class="card">
+    <h3>Token lab</h3>
+    <p>Create a token, read each block of its signature, follow the checks of the receiver one by one, and replay the attacks the library refuses.</p>
+    <ul class="card-links"><li><a href="https://ezxmldsig.wbcdr.dev">ezxmldsig.wbcdr.dev</a></li></ul>
+  </article>
+  <article class="card">
+    <h3>Single sign-on</h3>
+    <p>Three sites on three host names: an identity provider, which alone knows the passwords, and two applications that open on its signed tokens, one login for both.</p>
+    <ul class="card-links"><li><a href="https://sso.wbcdr.dev">sso.wbcdr.dev</a></li></ul>
+  </article>
+</div>
