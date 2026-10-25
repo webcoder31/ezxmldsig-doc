@@ -9,8 +9,9 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-  syntax_highlighter_opts:
-    disable: true
+  # Rouge colours the code blocks when the site is built: no script in the
+  # pages. Its classes take the colours of the demos (.highlight, site.css).
+  syntax_highlighter: rouge
 
 permalink: pretty
 

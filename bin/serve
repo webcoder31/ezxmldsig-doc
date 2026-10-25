@@ -7,7 +7,10 @@ set -e
 cd "$(dirname "$0")/.."
 # A terminal for Ctrl-C, when there is one.
 tty=; [ -t 0 ] && tty=-it
-exec docker run --rm $tty \
+# A previous preview whose script was stopped without a terminal may still
+# run: it holds the port.
+docker rm -f ezxmldsig-doc-serve >/dev/null 2>&1 || true
+exec docker run --rm $tty --name ezxmldsig-doc-serve \
   -p 127.0.0.1:4000:4000 \
   -v "$PWD":/site -w /site \
   -v ezxmldsig-doc-gems:/usr/local/bundle \

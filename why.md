@@ -24,7 +24,7 @@ The root can be the one of a public CA, as for HTTPS certificates. It can also b
 
 The receiver declares the CA certificates it trusts, the root and the intermediates, and a token is accepted only if its signing certificate descends from them. The receiver can also require a given subject, or one given certificate.
 
-A token signed with any other certificate is rejected, even though its signature is mathematically correct: that signature proves that the data did not change since it was made, not who made it. The section [How does it work?](https://github.com/webcoder31/ezxmldsig-php#how-does-it-work) of the README of the PHP library goes through the checks one by one.
+A token signed with any other certificate is rejected, even though its signature is mathematically correct: that signature proves that the data did not change since it was made, not who made it. [How does it work?]({{ '/how-it-works/' | relative_url }}) goes through the checks one by one.
 
 <div class="see-also" markdown="1">
 Declaring the trusted certificates: the section "Trust anchor" of the README, [in PHP](https://github.com/webcoder31/ezxmldsig-php#trust-anchor) · [in Node.js](https://github.com/webcoder31/ezxmldsig-js#trust-anchor).
