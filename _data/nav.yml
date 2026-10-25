@@ -7,3 +7,11 @@
   url: /how-it-works/
 - title: Single sign-on
   url: /single-sign-on/
+- title: The receiver's duties
+  url: /receiver/
+- title: Encryption
+  url: /encryption/
+- title: Certificates and keys
+  url: /certificates/
+- title: Interoperability
+  url: /interoperability/

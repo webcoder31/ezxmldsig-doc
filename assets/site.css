@@ -304,8 +304,14 @@ main { min-width: 0; outline: none; }
 .highlight .cp, .highlight .c, .highlight .c1, .highlight .cm { color: var(--x-decl); }
 .highlight .nt { color: var(--x-tag); }
 .highlight .na { color: var(--x-attr); }
-.highlight .s, .highlight .s1, .highlight .s2 { color: var(--x-value); }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .dl { color: var(--x-value); }
 .language-xml .highlight code { color: var(--x-text); }
+/* JavaScript, shell and ini files, in the same colours: keywords as
+   attributes, sections as tags, numbers as text. */
+.highlight .k, .highlight .kd, .highlight .kr, .highlight .kc, .highlight .kn, .highlight .ow { color: var(--x-attr); }
+.highlight .nn, .highlight .nb { color: var(--x-tag); }
+.highlight .mi, .highlight .mf, .highlight .m, .highlight .sr { color: var(--x-text); }
+.highlight .se, .highlight .si { color: var(--x-prefix); }
 
 /* A note that sends the reader to the README of each library. */
 .see-also {
@@ -341,12 +347,14 @@ main { min-width: 0; outline: none; }
 }
 .hero-lead { margin: 16px 0 0; max-width: 680px; color: var(--muted); font-size: 17px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0; }
+.prose .actions { margin: 20px 0 0; }
 
 .btn-primary {
   display: inline-flex; align-items: center; height: 40px; padding: 0 18px;
   border-radius: 10px; background: var(--accent); color: var(--accent-ink);
   font-weight: 650; text-decoration: none;
 }
+.btn-primary, .btn-primary:hover { text-decoration: none; }
 .btn-primary:hover { background: var(--accent-strong); color: var(--accent-ink); }
 
 .hero-art { display: none; }
@@ -390,6 +398,9 @@ main { min-width: 0; outline: none; }
   border-top: 1px solid var(--border); color: var(--faint); font-size: 13.5px;
 }
 .footer p { margin: 0 0 4px; }
+/* Under a page of text, the footer takes the width of the text; under the
+   home page, the width of its cards. */
+.prose + .footer { max-width: 780px; }
 
 /* ---------- Responsive ---------- */
 

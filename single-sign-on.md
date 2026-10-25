@@ -16,10 +16,12 @@ One login on an identity provider opens every application that trusts it. The id
 
 ## The three sites
 
-The [single sign-on demo](https://sso.wbcdr.dev) plays it with three sites on three host names:
+The single sign-on demo plays it with three sites on three host names:
 
 * **IDP**, the identity provider, which alone knows the users and their passwords, and signs the tokens;
 * **MAIL** and **CRM**, two applications, which have no password and trust the tokens of IDP.
+
+<p class="actions"><a class="btn-primary" href="https://sso.wbcdr.dev">Try the SSO demo</a></p>
 
 ## Trust, set up beforehand
 
