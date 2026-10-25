@@ -14,6 +14,14 @@ The site holds no API: what depends on a library (methods, options, their types)
 * `_data/libraries.yml` describes both libraries, and gives the earliest version of each that the pages apply to, shown at the foot of every page.
 * `assets/site.css` takes its colours, its top bar and the illustration of the home page from the demos of ezxmldsig-php (`demo/public/app.css`).
 
+## Screenshots of the demos
+
+`assets/screenshots/token-lab.png` and `assets/screenshots/single-sign-on.png` show the two demos of ezxmldsig-php, on the home page of the site and in the READMEs of both libraries, which load them from this site: **their paths must not change**, since the README of each version published on Packagist and npm keeps them. Take them again when a demo changes, as they were taken:
+
+* in Chrome, a window of 1400 × 900 pixels, the dark theme, the demo running on the machine (`bin/demo` and `bin/demo-sso` in ezxmldsig-php);
+* the token lab: its page as it opens, with the block SignedInfo of the token selected;
+* the single sign-on demo: its home page after a login on MAIL then CRM entered without a new login, the trace scrolled to its end, and the animated illustration at its last step (the three sessions open, both tokens accepted).
+
 ## Preview
 
 ```sh
