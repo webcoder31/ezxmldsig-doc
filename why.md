@@ -33,7 +33,7 @@ Declaring the trusted certificates: the section "Trust anchor" of the README, [i
 <div class="callout" markdown="1">
 **Revocation is not checked.** The libraries consult neither certificate revocation lists (CRL) nor OCSP responders: a revoked certificate is accepted until it expires.
 
-To stop trusting a compromised CA, remove it from `caCertPath`. To stop trusting a compromised signing certificate, remove its issuing CA as well, or pin the certificate that replaces it with `signerCertPath`.
+What to do when a key leaks, signing key, CA key or decryption key: [Certificates and keys]({{ '/certificates/#when-a-key-is-compromised' | relative_url }}).
 </div>
 
 ## Beyond single sign-on

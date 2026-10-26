@@ -108,6 +108,29 @@ openssl verify -CAfile root.cert.pem -untrusted intermediate.cert.pem sign.cert.
 
 The receiver then trusts the sender with `intermediate.cert.pem` and `root.cert.pem` in `caCertPath`, and `O` = `Lothbrok Ltd`, `OU` = `Signature Dept` in `expectedSubject`. Without a CA, a self-signed signing certificate pinned by the receiver (`signerCertPath`) is enough: create it like the root above, with the extensions of `[sign]`.
 
+## When a key is compromised
+
+The libraries do not check revocation (see [Why?]({{ '/why/' | relative_url }})): a certificate whose key has leaked stays valid for them until it expires. The receiver stops trusting it with the trust options, in a way that depends on the key that leaked.
+
+**The signing key of the sender.** Whoever holds it can create tokens the receiver accepts, until the certificate expires.
+
+1. The sender creates a new key pair, has its CA issue a new signing certificate, and signs with it from then on.
+2. The receiver pins this new certificate with `signerCertPath`, and keeps `caCertPath`: both are then required, and a token signed with the old certificate is rejected, although its CA is still trusted.
+3. Once the old certificate has expired, the receiver may remove `signerCertPath`: an expired certificate is rejected anyway.
+
+`expectedSubject` does not help here: the new certificate usually has the same subject as the old one, which the holder of the leaked key keeps using. And `signerCertPath` names a single certificate, so that the old and the new one are never accepted together: the sender and the receiver switch at the same time, and the tokens created just before the switch are rejected.
+
+**The key of a CA, intermediate or root.** Whoever holds it can issue certificates with any subject: neither `expectedSubject` nor a CA in `caCertPath` protects any longer.
+
+1. The receiver removes this CA from `caCertPath`.
+2. The sender gets a signing certificate from a sound CA: a new intermediate, or a new root if the root has leaked.
+3. The receiver adds the new CA to `caCertPath`. Meanwhile, it can pin the new certificate of the sender with `signerCertPath` alone, which is then the trust anchor.
+
+**The decryption key of the recipient**, for encrypted tokens. Whoever holds it reads the tokens it intercepts.
+
+1. The recipient creates a new encryption key pair and gives its new certificate to the sender, which encrypts with it from then on.
+2. The tokens already intercepted stay readable, and nothing can change that: an encrypted token should not carry data whose late disclosure would be a problem.
+
 <div class="see-also" markdown="1">
 The trust anchor in code, with the forms `expectedSubject` takes: the section "Trust anchor" of the README, [in PHP](https://github.com/webcoder31/ezxmldsig-php#trust-anchor) · [in Node.js](https://github.com/webcoder31/ezxmldsig-js#trust-anchor).
 </div>
