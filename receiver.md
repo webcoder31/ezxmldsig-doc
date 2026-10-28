@@ -17,7 +17,7 @@ Before trusting the data of a received token, the receiver makes three checks:
 3. the identifier of the token has not been accepted before (replay).
 
 <div class="see-also" markdown="1">
-The code of these three checks: the section "Checking an XML token" of the README, [in PHP](https://github.com/webcoder31/ezxmldsig-php#xmldsigtoken-checking-an-xml-token) · [in Node.js](https://github.com/webcoder31/ezxmldsig-js#checking-an-xml-token).
+The code of these three checks: the section "Checking an XML token" of the README, [in PHP](https://github.com/webcoder31/ezxmldsig-php#checking-an-xml-token) · [in Node.js](https://github.com/webcoder31/ezxmldsig-js#checking-an-xml-token).
 </div>
 
 ## Restrict the trust anchor to the sender
